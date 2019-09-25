@@ -19,8 +19,9 @@ from sys import argv # Argumentos from shell
 from collections import defaultdict # Diccionarios de Listas
 from frase import * # Clase Frase
 from corpus import * # Claee Corpus
-from time import sleep
-from datetime import datetime
+from time import sleep # Delay
+from datetime import datetime # Timestamp
+from os import path, makedirs # Directorios
 ' Bibliotecas para la Interfaz GUI '
 from tkinter.ttk import Progressbar
 from tkinter import Tk,Text,Label,Entry,filedialog,\
@@ -52,6 +53,7 @@ class Esquivel:
         self.direOutput  = "Output/" # Canciones generadas 
         self.direObjetos = "Objetos/Clase_Corpus_Objeto.pickle" # Objeto tipo Corpus 
 
+
     def mostrarCorpus(self):
         '''
         Imprime el corpus en el shell
@@ -76,6 +78,11 @@ class Esquivel:
 
     def serializarCorpus(self):
         self.liberarMemoria()
+        direObjetos = self.direObjetos.split("/") [0] 
+        if not path.exists (direObjetos):
+            makedirs(direObjetos)
+            print("Directorio creado:", direObjetos)
+            del direObjetos
         print("Serializando el corpus, por favor espere...")
         self.corpus = Corpus(self.direCorpus)
         print("Grabando Clase Corpus")
@@ -533,6 +540,9 @@ class Esquivel:
         '''
         if self.output:
             try:
+                if not path.exists (self.direOutput):
+                    makedirs(self.direOutput)
+                    print("Directorio creado:", self.direOutput)
                 '''
                 Guardamos la canción generada
                 En extensión 'txt', timestamp como nombre de origen. 
