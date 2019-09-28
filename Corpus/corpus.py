@@ -12,11 +12,12 @@
 -------------------------------------------------------------------------
 '''
 from collections import defaultdict # Diccionarios de Listas
+from Frase.frase import Frase # Clase Frase
 import csv
-from frase import *
 
 class Corpus:
-    def __init__(self,archivo):
+    def __init__(self,archivo, mapeo = False#Por default no se hace el mapeo
+                  ):
         '''
         Clase Corpus
         Gestiona un corpusc (ya procesado, en CSV) 
@@ -29,7 +30,7 @@ class Corpus:
         self.noCancion = 0 # Identificador de Canción iterada
         self.noLineas = 0  # No. Total de frases / líneas de texto
         self.contador = 0 # Contador de canciones rechazadas por la rutina de mapeo
-        self.procesar(archivo) #Procesamos el achivo CSV
+        self.procesar(archivo, mapeo) #Procesamos el achivo CSV
 
     def mapearLetra(self,cadena):
         # Contador de canciones
@@ -50,7 +51,7 @@ class Corpus:
                 #print("Frase %d rechazada: %s" % (self.contador,frase))
             j += 1
 
-    def procesar(self,archivo):
+    def procesar(self,archivo,mapeo = False):
         if not self.corpus:
             self.corpus = list()
             self.mapeo = defaultdict(list)
@@ -63,7 +64,8 @@ class Corpus:
                         linea = fila['letra'].split("\n")[:-1]
                         self.noLineas += len(linea)
                         fila['letra'] = linea
-                        self.mapearLetra(linea)
+                        if mapeo:
+                            self.mapearLetra(linea)
                         self.corpus.append(fila)
                         self.noCancion += 1
                         self.generos.add(fila['genero'])
@@ -97,4 +99,6 @@ class Corpus:
     def shuffle (self):
         limite = self.noCancion - 1
         return self.corpus[random.randint(0,limite)]
+
+
 

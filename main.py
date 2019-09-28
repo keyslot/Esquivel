@@ -17,8 +17,8 @@ import unicodedata #Acentos
 import pickle # Seriabilizacion
 from sys import argv # Argumentos from shell
 from collections import defaultdict # Diccionarios de Listas
-from frase import * # Clase Frase
-from corpus import * # Claee Corpus
+from Corpus.corpus import Corpus # Mod. Corpus
+from Frase.frase  import Frase #  Mod. Frase
 from time import sleep # Delay
 from datetime import datetime # Timestamp
 from os import path, makedirs # Directorios
@@ -59,7 +59,7 @@ class Esquivel:
         Imprime el corpus en el shell
         '''
         print("iniciando ...")
-        self.cargarCorpus()
+        self.corpus = Corpus(self.direCorpus)
         self.corpus.iterar()
         self.liberarMemoria()
 
@@ -84,7 +84,7 @@ class Esquivel:
             print("Directorio creado:", direObjetos)
             del direObjetos
         print("Serializando el corpus, por favor espere...")
-        self.corpus = Corpus(self.direCorpus)
+        self.corpus = Corpus(self.direCorpus, True) # Mapeamos las letras (True)
         print("Grabando Clase Corpus")
         try:
             with open(self.direObjetos, 'wb') as handle:
