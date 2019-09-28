@@ -7,7 +7,7 @@ Corpus de Letras de Canciones, en idioma Español
 - Formato: csv
 
 ## Herramientas usadas
-Uso de técnicas scraping: *Wget*
+Uso de técnicas scraping: *Wget* <br/>
 Intento de correción de la extracción: *Python*
 
 ## Generos Musicales:
