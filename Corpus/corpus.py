@@ -69,10 +69,11 @@ class Corpus:
                         self.corpus.append(fila)
                         self.noCancion += 1
                         self.generos.add(fila['genero'])
-                self.mapeo = dict(self.mapeo)
-                ' Debug '
-                #print("Frases rechazadas: ",self.contador)
-                #print(self.corpus[cancion]['letra'][frase])
+                if mapeo: 
+                    self.mapeo = dict(self.mapeo)
+                    ' Debug '
+                    #print("Frases rechazadas: ",self.contador)
+                    #print(self.corpus[cancion]['letra'][frase])
             except:
                 print ("Error intentar procesar el corpus")
 
