@@ -3,7 +3,7 @@ Corpus de Letras de Canciones, en idioma Español
 
 - Total de Canciones: 438
 - Año de recolección: 2019
-- Dimensiones: 150624  Líneas de Texto
+- Dimensiones: 150624  Líneas de Texto *(cuerpo de la letra)*
 - Formato: csv
 
 ## Herramientas usadas
