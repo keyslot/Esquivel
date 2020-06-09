@@ -3,16 +3,20 @@ Corpus de Letras de Canciones, en idioma Español
 
 - Total de Canciones: 438
 - Año de recolección: 2019
-- Dimensiones: 150624  Líneas de Texto *(cuerpo de la letra)*
+- Dimensiones: 150624  Líneas de Texto *(cuerpo de cada letra)*
 - Formato: csv
 
 ## Herramientas usadas
 Uso de técnicas scraping: *Wget* <br/>
 Intento de correción de la extracción: *Python*
 
-## Generos Musicales:
+## Géneros Musicales
 ```python
 Generos: {'POP', 'TROVA', 'ROCK', 'MARIACHI', 'JAZZ', 'ROMANTICO', 'BOLEROS'}
+```
+## Estructura
+```csv
+genero,titulo,letra,url
 ```
 # Problemas
 **Ser tolerante a los errores ortográficos.**
