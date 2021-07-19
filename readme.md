@@ -1,6 +1,10 @@
 # Esquivel
 Generativa automática de canciones
 
+![Screenshot](https://gitlab.com/keyslot/esquivel/-/raw/master/Capturas/2019-09-28_12-42-03.png)
+Format: ![Alt Text](https://gitlab.com/keyslot/esquivel/-/raw/master/Capturas/2019-09-28_12-42-03.png)
+
+
 ## Requerimientos
 
 - Python 3: 
